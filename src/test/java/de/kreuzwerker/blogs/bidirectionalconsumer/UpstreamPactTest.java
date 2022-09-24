@@ -118,7 +118,7 @@ public class UpstreamPactTest {
         .method("GET")
         .headers("Accept", MediaType.APPLICATION_JSON_VALUE)
         .willRespondWith()
-        .status(400)
+        .status(404)
         .toPact();
   }
 
@@ -130,7 +130,7 @@ public class UpstreamPactTest {
         assertThrows(
             WebClientResponseException.class, () -> demoClient.getEmployees(unknownDepartmentId));
 
-    assertThat(ex.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+    assertThat(ex.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
   }
 
   @Pact(consumer = "pact-consumer")
@@ -140,6 +140,7 @@ public class UpstreamPactTest {
         newJsonBody(
                 (body) -> {
                   body.stringType("firstName", "Ellen");
+                  body.stringType("lastName", "DeGeneres");
                   body.stringType("email", "ripley@weyland-yutani.com");
                   body.uuid("employeeId", UUID.randomUUID());
                 })

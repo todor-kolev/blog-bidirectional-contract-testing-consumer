@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  PACT_BROKER_BASE_URL: https://kreuzwerker-blog.pactflow.io
+  PACT_BROKER_BASE_URL: https://tekadvisory.pactflow.io
   PACT_BROKER_TOKEN: ${{ secrets.PACTFLOW_TOKEN }}
   version: ${{ github.sha }}
   application_name: "pact-consumer"

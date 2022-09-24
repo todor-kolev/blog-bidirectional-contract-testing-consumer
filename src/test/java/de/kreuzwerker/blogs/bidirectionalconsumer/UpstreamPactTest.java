@@ -208,6 +208,7 @@ public class UpstreamPactTest {
   private Employee createEmployeeMinData() {
     Employee emp = new Employee();
     emp.setFirstName("Michelle");
+    emp.setLastName("Obama");
     emp.setEmail("michelle.yeoh@goat.com");
     return emp;
   }

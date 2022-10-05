@@ -46,6 +46,7 @@ public class UpstreamPactTest {
   private final UUID departmentId = UUID.fromString("6a7e41b9-cacf-44f4-95b7-af1fdd60f3c8");
   private final UUID unknownDepartmentId = UUID.fromString("3535c952-1c46-4cc7-9908-c4a3a1e5c597");
 
+  //We had to create this whole test just so we can generate the consumer contract from it ie specification by example!
   @Pact(consumer = "pact-consumer")
   public RequestResponsePact pactEmployeeListing(PactDslWithProvider builder) {
 
